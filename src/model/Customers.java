@@ -3,13 +3,13 @@ package model;
 public class Customers {
 
     private String Name;
-    private String Id;
+    private Integer Id;
 
     public String getName() {
         return Name;
     }
 
-    public String getId() {
+    public Integer getId() {
         return Id;
     }
 
@@ -17,12 +17,16 @@ public class Customers {
         Name = name;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
-    public Customers(String name, String id) {
+    public Customers(String name, Integer id) {
         Name = name;
         Id = id;
+    }
+    public void print()
+    {
+        System.out.printf("CustomerID: %d, Name: %s,",Id,Name);
     }
 }

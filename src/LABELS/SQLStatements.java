@@ -4,7 +4,11 @@ public class SQLStatements {
 
     public static final String CUSTTABLE      = "CustTable";
     public static final String CUSTTABLE_NAME  = "NAME";
-    public static final String CUSTTABLE_ID    = "ID";//dasdas
+    public static final String CUSTTABLE_ID    = "ID";
+    public static final String STATEMENT_SELECT_SQL_CustTable = "SELECT "
+            + SQLStatements.CUSTTABLE_ID + ','
+            + SQLStatements.CUSTTABLE_NAME
+            + " FROM " + SQLStatements.CUSTTABLE  ;
     public static final String STATEMENT_CREATE_SQL_CUSTTABLE =
             "CREATE TABLE IF NOT EXISTS " + SQLStatements.CUSTTABLE + "( " +
                     SQLStatements.CUSTTABLE_ID + " integer PRIMARY KEY ,\n" +
@@ -15,6 +19,8 @@ public class SQLStatements {
                  SQLStatements.CUSTTABLE_NAME +
             " ) VALUES(?,?);";
     public static final String STATEMENT_DELETE_SQL_CUSTTABLE = "DELETE FROM " + SQLStatements.CUSTTABLE; ///" WHERE prod_id=4;
+    public static final String STATEMENT_GETMAXID_SQL_CUSTTABLE= "SELECT MAX(" + SQLStatements.CUSTTABLE_ID + ") as "
+            + SQLStatements.INVENTTABLE_MAXID+ " FROM " + SQLStatements.CUSTTABLE  ;
 
     public static final String INVENTTABLE      = "INVENTTABLE";
     public static final String INVENTTABLE_ITEMID  = "ITEMID";
@@ -27,6 +33,8 @@ public class SQLStatements {
     public static final String INVENTTABLE_RFS  = "RFS";
     public static final String INVENTTABLE_QTY  = "PRICE";
     public static final String INVENTTABLE_ITEMTYPE  = "ITEMTYPE";
+
+    public static final String INVENTTABLE_MAXID  = "MAXID";
 
     public static final String STATEMENT_SELECT_SQL_INVENTTABLE = "SELECT "
             + SQLStatements.INVENTTABLE_ITEMID + ','
@@ -66,7 +74,11 @@ public class SQLStatements {
             SQLStatements.INVENTTABLE_ITEMTYPE  + ", " +
             SQLStatements.INVENTTABLE_QTY  +
             " ) VALUES(?,?,?,?,?,?,?,?,?,?);";
-    public static final String STATEMENT_DELETE_SQL_INVENTTABLE = "DELETE FROM " + SQLStatements.INVENTTABLE  ; ///" WHERE prod_id=4;
+    public static final String STATEMENT_DELETE_SQL_INVENTTABLE = "DELETE FROM " + SQLStatements.INVENTTABLE  ;
+    public static final String STATEMENT_UPDATE_SQL_INVENTTABLE = "UPDATE " + SQLStatements.INVENTTABLE + " SET "
+            + SQLStatements.INVENTTABLE_QTY + "= ? WHERE "+ SQLStatements.INVENTTABLE_ITEMID + " = ?;" ;
+    public static final String STATEMENT_GETMAXID_SQL_INVENTTABLE = "SELECT MAX(" + SQLStatements.INVENTTABLE_ITEMID + ") as "
+            + SQLStatements.INVENTTABLE_MAXID+ " FROM " + SQLStatements.INVENTTABLE ;
 
     public static final String SALESORDER      = "SALESORDER";
     public static final String SALESORDER_SALESID  = "SALESID";
@@ -83,10 +95,21 @@ public class SQLStatements {
                     SQLStatements.SALESORDER_QTY +  " integer NOT NULL\n"+
                     ");";
     public static final String STATEMENT_INSERT_SQL_SALESORDER = "INSERT INTO " + SQLStatements.SALESORDER   +
-            " (" + SQLStatements.SALESORDER_SALESID + ", " +
-            SQLStatements.SALESORDER_CUSTID + ", " +
+            " (" //+ SQLStatements.SALESORDER_SALESID + ", " +
+            +SQLStatements.SALESORDER_CUSTID + ", " +
             SQLStatements.SALESORDER_SALESTYPE  + ", " +
             SQLStatements.SALESORDER_ITEMID + ", " +
             SQLStatements.SALESORDER_QTY +
-            " ) VALUES(?,?,?,?,?);";
+            " ) VALUES(?,?,?,?);";
+    public static final String STATEMENT_DELETE_SQL_SALESORDER = "DELETE FROM " + SQLStatements.SALESORDER +" WHERE " +  SQLStatements.SALESORDER_SALESID + "=?;" ;
+    public static final String STATEMENT_SELECT_SQL_SALESORDER = "SELECT " +
+                SQLStatements.SALESORDER_SALESID + ", " +
+                SQLStatements.SALESORDER_CUSTID + ", " +
+                SQLStatements.SALESORDER_SALESTYPE  + ", " +
+                SQLStatements.SALESORDER_ITEMID + ", " +
+                SQLStatements.SALESORDER_QTY
+            + " FROM " + SQLStatements.SALESORDER  ;
+
+    public static final String STATEMENT_GETMAXID_SQL_SALESORDER= "SELECT MAX(" + SQLStatements.SALESORDER_SALESID + ") as "
+            + SQLStatements.INVENTTABLE_MAXID+ " FROM " + SQLStatements.SALESORDER  ;
 }

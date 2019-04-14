@@ -1,66 +1,70 @@
 package model;
 
 public class SalesOrder {
+
+
     public enum SalesOrderTupe {
         Restocked,
         Purched,
         Requested,
         Completed};
 
-
-    private String SalesId; // pk
-    private String CustId; //fk
-    private SalesOrderTupe SalesType; // desc
+    private Integer ItemId; // fk
+    private Integer SalesId; // pk
+    private Integer CustId; //fk
+    private Integer SalesType; // desc
     private Integer Qty; //des
 
-        public String getSalesId() {
-            return SalesId;
-        }
 
-        public void setSalesId(String salesId) {
-            SalesId = salesId;
-        }
+    public void print()
+    {
+        System.out.printf("SalesID: %d, ItemId: %d, CustId: %d, SalesType: %d, Qty: %d ",SalesId,ItemId,CustId,SalesType,Qty);
+    }
+    public SalesOrder(Integer itemId, Integer salesId, Integer custId, Integer salesType, Integer qty) {
+        ItemId = itemId;
+        SalesId = salesId;
+        CustId = custId;
+        SalesType = salesType;
+        Qty = qty;
+    }
 
-        public String getCustId() {
-            return CustId;
-        }
+    public Integer getItemId() {
+        return ItemId;
+    }
 
-        SalesOrder(String salesId, String custId, SalesOrderTupe salesType, Integer qty, String itemId) {
-            SalesId = salesId;
-            CustId = custId;
-            SalesType = salesType;
-            Qty = qty;
-            ItemId = itemId;
-        }
+    public void setItemId(Integer itemId) {
+        ItemId = itemId;
+    }
 
-        public void setCustId(String custId) {
-            CustId = custId;
-        }
+    public Integer getSalesId() {
+        return SalesId;
+    }
 
-        public SalesOrderTupe getSalesType() {
-            return SalesType;
-        }
+    public void setSalesId(Integer salesId) {
+        SalesId = salesId;
+    }
 
-        public void setSalesType(SalesOrderTupe salesType) {
-            SalesType = salesType;
-        }
+    public Integer getCustId() {
+        return CustId;
+    }
 
-        public Integer getQty() {
-            return Qty;
-        }
+    public void setCustId(Integer custId) {
+        CustId = custId;
+    }
 
-        public void setQty(Integer qty) {
-            Qty = qty;
-        }
+    public Integer getSalesType() {
+        return SalesType;
+    }
 
-        public String getItemId() {
-            return ItemId;
-        }
+    public void setSalesType(Integer salesType) {
+        SalesType = salesType;
+    }
 
-        public void setItemId(String itemId) {
-            ItemId = itemId;
-        }
+    public Integer getQty() {
+        return Qty;
+    }
 
-        private String ItemId; // fk
-    // opendata and close date here
+    public void setQty(Integer qty) {
+        Qty = qty;
+    }
 }

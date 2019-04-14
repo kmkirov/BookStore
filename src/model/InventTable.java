@@ -16,6 +16,8 @@ public class InventTable {
     private boolean readyForSale;
     private Integer QTY;
 
+
+
     public Integer getItemType() {
         return ItemType;
     }
