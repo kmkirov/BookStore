@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="590eb4ff-83ad-4aed-8772-2505d005a308" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LABELS/SQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LABELS/SQLStatements.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/LABELS/SQLStatements.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -129,6 +129,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Kiril Kirov &lt;kirakis1@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PUSH_TAGS">
       <GitPushTagMode />
@@ -145,11 +150,11 @@
         <option value="$PROJECT_DIR$/src/SQLiteManagement/SQLiteTransactionManager.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/SQLiteManagement/DatabaseConnection.java" />
-        <option value="$PROJECT_DIR$/src/LABELS/SQLStatements.java" />
         <option value="$PROJECT_DIR$/src/businessLogic/Main.java" />
         <option value="$PROJECT_DIR$/src/SQLiteManagement/InventoryStorageManager.java" />
         <option value="$PROJECT_DIR$/src/model/InventTable.java" />
         <option value="$PROJECT_DIR$/src/businessLogic/StoreCommands.java" />
+        <option value="$PROJECT_DIR$/src/LABELS/SQLStatements.java" />
       </list>
     </option>
   </component>
@@ -279,11 +284,26 @@
       <option name="project" value="LOCAL" />
       <updated>1555244427126</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init task">
+      <created>1555244904656</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1555244904656</updated>
+    </task>
+    <task id="LOCAL-00003" summary="init task">
+      <created>1555244932964</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555244932964</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13752665" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -425,7 +445,7 @@
     <entry file="file://$PROJECT_DIR$/src/LABELS/SQLStatements.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
         </state>
       </provider>
     </entry>

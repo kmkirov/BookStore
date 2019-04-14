@@ -4,7 +4,7 @@ public class SQLStatements {
 
     public static final String CUSTTABLE      = "CustTable";
     public static final String CUSTTABLE_NAME  = "NAME";
-    public static final String CUSTTABLE_ID    = "ID";
+    public static final String CUSTTABLE_ID    = "ID";//dasdas
     public static final String STATEMENT_CREATE_SQL_CUSTTABLE =
             "CREATE TABLE IF NOT EXISTS " + SQLStatements.CUSTTABLE + "( " +
                     SQLStatements.CUSTTABLE_ID + " integer PRIMARY KEY ,\n" +
