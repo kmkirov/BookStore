@@ -11,6 +11,11 @@ public class InventoryStorageManager {
 
     Connection conn = null;
 
+    public InventoryStorageManager() throws SQLException {
+        //this.conn = null;
+        this.createInventTable();
+    }
+
     public ArrayList getAllItems() throws SQLException {
         DatabaseConnection dc = DatabaseConnection.getInstance();
         conn = dc.getConnection();
@@ -88,7 +93,7 @@ public class InventoryStorageManager {
         }
     }
 
-    public void createInventTable() throws SQLException {
+    private void createInventTable() throws SQLException {
         Connection conn = null;
         DatabaseConnection dc = DatabaseConnection.getInstance();
         conn = dc.getConnection();
@@ -96,7 +101,7 @@ public class InventoryStorageManager {
         try {
             String selectString = SQLStatements.STATEMENT_CREATE_SQL_INVENTTABLE;
             stmt = conn.createStatement();
-            stmt.executeQuery(selectString);
+            stmt.executeUpdate(selectString);
             }
 
          catch (SQLException e ) {
@@ -171,7 +176,5 @@ public class InventoryStorageManager {
         return 0;
     }
 
-//    public void cleanRequestsAfterRestock(Integer itemId, Integer qty) {
-//    }
 }
 

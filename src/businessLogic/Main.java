@@ -2,6 +2,7 @@ package businessLogic;
 
 import LABELS.SQLStatements;
 import com.sun.corba.se.impl.encoding.BufferManagerRead;
+import model.Customers;
 import model.InventTable;
 
 import java.io.*;
@@ -83,7 +84,7 @@ public class Main {
                 st.requestItem(salesIdNext,itemIdNext, Integer.parseInt(custId), qty);
                 st.purchExistingItem(salesIdNext+1,itemIdNext, Integer.parseInt(custId), qty);
             }
-            else if(command.equals("9"))
+            else if(command.equals("8"))
             {
                 System.out.println("Selected:  Restock existing item. Please enter ItemId:");
                 String itemId = br.readLine();
@@ -92,7 +93,7 @@ public class Main {
                 st.updateQtyOfItem(Integer.parseInt(itemId),Integer.parseInt(itemQTy));
                 st.cleanRequestedItemSalesOrders(Integer.parseInt(itemId),Integer.parseInt(itemQTy));
             }
-            else if(command.equals("8"))
+            else if(command.equals("9"))
             {
                 System.out.println("Selected:  Restock not existing item. Please enter ItemId:");
                 Integer itemIdNext = st.nextItemId();
@@ -109,6 +110,12 @@ public class Main {
                 String salesId = br.readLine();
                 st.deleteSalesOrder(Integer.parseInt(salesId));
             }
+            else if(command.equals("12"))
+            {
+                System.out.println("Selected:  insert Customer with name:");
+                String name = br.readLine();
+                st.insertCustomer(name);
+            }
             //else {break;}
         //}while(true);
 
@@ -122,7 +129,7 @@ public class Main {
         String name="";
         String price="0";
         String desc = "";
-        if(Integer.getInteger(itemType) == InventTable.itemTypeValues.BOOK.ordinal())
+        if(Integer.parseInt(itemType) == InventTable.itemTypeValues.BOOK.ordinal())
         {
             System.out.println("Please enter a string in the filling the format:");
             System.out.println("Enter separated by enter the following Description/Name/Author/Price/OrderQtyValueNumber");
@@ -136,7 +143,7 @@ public class Main {
             st.insertItem(it);
             return Integer.parseInt(qty);
         }
-        else if(Integer.getInteger(itemType) == InventTable.itemTypeValues.BOARDGAME.ordinal())
+        else if(Integer.parseInt(itemType) == InventTable.itemTypeValues.BOARDGAME.ordinal())
         {
             System.out.println("Please enter a string in the filling the format:");
             System.out.println("Enter separated by enter the following  Description/Name//Price/OrderQtyValueNumber/MinNumberOfPlayer/MaxNumberOfPlayers/QTY");

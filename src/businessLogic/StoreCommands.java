@@ -3,13 +3,17 @@ package businessLogic;
 import SQLiteManagement.CustomerStogageManager;
 import SQLiteManagement.InventoryStorageManager;
 import SQLiteManagement.SalesOrderStorageManager;
+import model.Customers;
 import model.InventTable;
 import model.SalesOrder;
 
 import java.sql.SQLException;
 
 public class StoreCommands {
-    public void insertCustomer() {}
+    public void insertCustomer(String custName) throws SQLException {
+        CustomerStogageManager csm = new CustomerStogageManager();
+        csm.insertCustomerTable(new Customers(custName, this.nextCustId()));
+    }
 
     public void insertItem()// new items will be created with quantity no restocking needed
      {}

@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class SalesOrderStorageManager {
     Connection conn = null;
 
+    public SalesOrderStorageManager() throws SQLException {
+        this.createSalesOrderTable();
+    }
+
     public ArrayList getAllSalesOrders() throws SQLException {
         DatabaseConnection dc = DatabaseConnection.getInstance();
         conn = dc.getConnection();
@@ -84,8 +88,8 @@ public class SalesOrderStorageManager {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, salesOrder.getSalesId());
             pstmt.setInt(2, salesOrder.getCustId());
-            pstmt.setInt(3, salesOrder.getItemId());
-            pstmt.setInt(4, salesOrder.getSalesType());
+            pstmt.setInt(3, salesOrder.getSalesType());
+            pstmt.setInt(4, salesOrder.getItemId());
             pstmt.setInt(5, salesOrder.getQty());
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -121,7 +125,7 @@ public class SalesOrderStorageManager {
         try {
             String selectString = SQLStatements.STATEMENT_CREATE_SQL_SALESORDER;
             stmt = conn.createStatement();
-            stmt.executeQuery(selectString);
+            stmt.executeUpdate(selectString);
         }
 
         catch (SQLException e ) {

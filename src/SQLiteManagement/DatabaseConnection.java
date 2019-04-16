@@ -22,13 +22,13 @@ public class DatabaseConnection {
 
     private DatabaseConnection() throws SQLException {
         try {
-            Class.forName("org.postgresql.Driver");
+            //Class.forName("org.postgresql.Driver");
             this.connection = DriverManager.getConnection(url);
 
             if(this.connection == null){
                 System.out.println(Constants.SQL_CONNECTION_ERROR);
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException  ex) {
             System.out.println("Database Connection Creation Failed : " + ex.getMessage());
         }
     }

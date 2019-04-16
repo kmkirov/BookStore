@@ -31,7 +31,7 @@ public class SQLStatements {
     public static final String INVENTTABLE_NOPMAX  = "NOPMAX";
     public static final String INVENTTABLE_PRICE  = "PRICE";
     public static final String INVENTTABLE_RFS  = "RFS";
-    public static final String INVENTTABLE_QTY  = "PRICE";
+    public static final String INVENTTABLE_QTY  = "QTY";
     public static final String INVENTTABLE_ITEMTYPE  = "ITEMTYPE";
 
     public static final String INVENTTABLE_MAXID  = "MAXID";
@@ -46,20 +46,20 @@ public class SQLStatements {
             + SQLStatements.INVENTTABLE_PRICE + ','
             + SQLStatements.INVENTTABLE_RFS + ','
             + SQLStatements.INVENTTABLE_QTY + ','
-            + SQLStatements.INVENTTABLE_ITEMTYPE + ','
+            + SQLStatements.INVENTTABLE_ITEMTYPE
             + " FROM " + SQLStatements.INVENTTABLE ;
 
     public static final String STATEMENT_CREATE_SQL_INVENTTABLE =
             "CREATE TABLE IF NOT EXISTS " + SQLStatements.INVENTTABLE + "( " +
                     SQLStatements.INVENTTABLE_ITEMID + " integer PRIMARY KEY AUTOINCREMENT ,\n" +
-                    SQLStatements.INVENTTABLE_NAME +  " text NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_DESCRIPTION +  " text NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_AUTHOR +  " text \n" +
-                    SQLStatements.INVENTTABLE_NOPMIN +  " integer NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_NOPMAX +  " integer NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_PRICE +  " real NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_RFS +  " boolean NOT NULL\n" +
-                    SQLStatements.INVENTTABLE_QTY +  " int NOT NULL\n" +
+                    SQLStatements.INVENTTABLE_NAME +  " text NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_DESCRIPTION +  " text NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_AUTHOR +  " text, \n" +
+                    SQLStatements.INVENTTABLE_NOPMIN +  " integer NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_NOPMAX +  " integer NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_PRICE +  " real NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_RFS +  " boolean NOT NULL,\n" +
+                    SQLStatements.INVENTTABLE_QTY +  " int NOT NULL,\n" +
                     SQLStatements.INVENTTABLE_ITEMTYPE +  " integer NOT NULL\n" +
                     ");";
     public static final String STATEMENT_INSERT_SQL_INVENTTABLE = "INSERT INTO " + SQLStatements.INVENTTABLE   +
@@ -89,18 +89,20 @@ public class SQLStatements {
     public static final String STATEMENT_CREATE_SQL_SALESORDER =
             "CREATE TABLE IF NOT EXISTS " + SQLStatements.SALESORDER + "( " +
                     SQLStatements.SALESORDER_SALESID  + " integer PRIMARY KEY AUTOINCREMENT ,\n" +
-                    "FOREIGN KEY (" + SQLStatements.SALESORDER_CUSTID + ") REFERENCES "+ SQLStatements.CUSTTABLE + "("+ SQLStatements.CUSTTABLE_ID +")" +
+                    SQLStatements.SALESORDER_CUSTID  + " integer  ,\n" +
+                    SQLStatements.SALESORDER_ITEMID  + " integer  ,\n" +
+                    SQLStatements.SALESORDER_SALESTYPE +  " integer NOT NULL,\n" +
+                    SQLStatements.SALESORDER_QTY +  " integer NOT NULL,\n"+
+                    "FOREIGN KEY (" + SQLStatements.SALESORDER_CUSTID + ") REFERENCES "+ SQLStatements.CUSTTABLE + "("+ SQLStatements.CUSTTABLE_ID +")," +
                     "FOREIGN KEY (" + SQLStatements.SALESORDER_ITEMID  + ") REFERENCES "+ SQLStatements.INVENTTABLE + "("+ SQLStatements.INVENTTABLE_ITEMID +")" +
-                    SQLStatements.SALESORDER_SALESTYPE +  " integer NOT NULL\n" +
-                    SQLStatements.SALESORDER_QTY +  " integer NOT NULL\n"+
                     ");";
     public static final String STATEMENT_INSERT_SQL_SALESORDER = "INSERT INTO " + SQLStatements.SALESORDER   +
-            " (" //+ SQLStatements.SALESORDER_SALESID + ", " +
+            " (" + SQLStatements.SALESORDER_SALESID + ", "
             +SQLStatements.SALESORDER_CUSTID + ", " +
             SQLStatements.SALESORDER_SALESTYPE  + ", " +
             SQLStatements.SALESORDER_ITEMID + ", " +
             SQLStatements.SALESORDER_QTY +
-            " ) VALUES(?,?,?,?);";
+            " ) VALUES(?,?,?,?,?);";
     public static final String STATEMENT_DELETE_SQL_SALESORDER = "DELETE FROM " + SQLStatements.SALESORDER +" WHERE " +  SQLStatements.SALESORDER_SALESID + "=?;" ;
     public static final String STATEMENT_SELECT_SQL_SALESORDER = "SELECT " +
                 SQLStatements.SALESORDER_SALESID + ", " +

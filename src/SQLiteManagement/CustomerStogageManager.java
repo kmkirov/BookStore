@@ -11,6 +11,10 @@ public class CustomerStogageManager {
 
     Connection conn = null;
 
+    public CustomerStogageManager() throws SQLException {
+        this.createCustomerTable();
+    }
+
     public ArrayList getAllCustomers() throws SQLException {
         DatabaseConnection dc = DatabaseConnection.getInstance();
         conn = dc.getConnection();
@@ -45,7 +49,7 @@ public class CustomerStogageManager {
         }
     }
 
-    public void insertInventTable(Customers customer) throws SQLException {
+    public void insertCustomerTable(Customers customer) throws SQLException {
         String sql = SQLStatements.STATEMENT_INSERT_SQL_CUSTTABLE;
         Connection conn = null;
         DatabaseConnection dc = DatabaseConnection.getInstance();
@@ -69,7 +73,7 @@ public class CustomerStogageManager {
         try {
             String selectString = SQLStatements.STATEMENT_CREATE_SQL_CUSTTABLE;
             stmt = conn.createStatement();
-            stmt.executeQuery(selectString);
+            stmt.executeUpdate(selectString);
         }
 
         catch (SQLException e ) {
