@@ -27,6 +27,6 @@ public class Customers {
     }
     public void print()
     {
-        System.out.printf("CustomerID: %d, Name: %s,",Id,Name);
+        System.out.printf("CustomerID: %d, Name: %s \n",Id,Name);
     }
 }

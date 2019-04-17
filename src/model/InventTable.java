@@ -1,10 +1,34 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class InventTable {
-    public enum itemTypeValues{
-        BOARDGAME ,
-        BOOK
-    };
+    public enum itemTypeValues {
+        BOARDGAME(0),
+        BOOK(1);
+        private int value;
+        private static Map map = new HashMap<>();
+
+        private itemTypeValues(int value) {
+            this.value = value;
+        }
+
+        static {
+            for (itemTypeValues pageType : itemTypeValues.values()) {
+                map.put(pageType.value, pageType);
+            }
+        }
+
+        public static itemTypeValues valueOf(int pageType) {
+            return (itemTypeValues) map.get(pageType);
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+    }
     private Integer ItemId;
     private String Description;
     private String Name;
@@ -97,7 +121,7 @@ public class InventTable {
         QTY = quantity;
     }
 
-    public InventTable(Integer itemId, String description, String name, String author, Integer numOfPlayersMin, Integer numOfPlayersMax, Double price, boolean readyForSale, int quantity, Integer itemType) {
+    public InventTable(Integer itemId, String description, String name, String author, Integer numOfPlayersMin, Integer numOfPlayersMax, Double price, boolean readyForSale, Integer quantity, Integer itemType) {
         ItemId = itemId;
         Description = description;
         Name = name;
@@ -112,9 +136,9 @@ public class InventTable {
 
     public void print()
     {
-        System.out.printf("ItemId: %s,ItemType %d , Descriptions: %s, Name: %s," +
-                " Author: %s, Qty: %d, Price: %d, Number of Players: %d to %d, ReadyForSale %d",
-                ItemId,ItemType, Description, Name, Author,QTY,Price,NumOfPlayersMin, NumOfPlayersMax,readyForSale);
+        System.out.printf("ItemId: %s,ItemType %s , Descriptions: %s, Name: %s," +
+                " Author: %s, Qty: %d, Price: %f, Number of Players: %d to %d, ReadyForSale %b \n",
+                ItemId, itemTypeValues.valueOf(ItemType), Description, Name, Author, QTY, Price, NumOfPlayersMin, NumOfPlayersMax, readyForSale);
     }
 
     public boolean  itemBookTitleContainsWord(String titlePart) {

@@ -15,20 +15,22 @@ public class Main {
     public static void main( String args[] ) throws IOException, SQLException {
         StoreCommands st = new StoreCommands();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        //do{
+        do{
             System.out.println("Please select option by typing a number:");
-            System.out.println("1. Show items list. "); // ready not tested
-            System.out.println("2. Search for book by title (partialy).");// ready not tested
-            System.out.println("3. Search for book by author (partialy).");// ready not tested
-            System.out.println("4. Search for board game by name (partialy).");// ready not tested
-            System.out.println("5. Search for board game by number of player.");// ready not tested
-
+            System.out.println("1. Show items list. ");
+            System.out.println("2. Search for book by title (partialy).");
+            System.out.println("3. Search for book by author (partialy).");
+            System.out.println("4. Search for board game by name (partialy).");
+            System.out.println("5. Search for board game by number of player.");
             System.out.println("6. Purch Item by catalog number.(catalog changes)");
-            System.out.println("7. Order not existing item."); // add new item to items, create purch order and request
+            System.out.println("7. Order not existing item.");
             System.out.println("8. Restock existing item.");
             System.out.println("9. Restock not existing item.");
             System.out.println("10. List clients request for new item.");
-            System.out.println("11. Remove client request. (return moneq and delete bot orders)");
+            System.out.println("11. Remove client request. (return money and delete both orders)");
+            System.out.println("12. Insert Customer by name.");
+            System.out.println("13. Show all SalesOrders.");
+            System.out.println("14. Show all Customers.");
 
             // user Input
             System.out.print("Enter a command: ");
@@ -116,8 +118,18 @@ public class Main {
                 String name = br.readLine();
                 st.insertCustomer(name);
             }
-            //else {break;}
-        //}while(true);
+            else if(command.equals("13"))
+            {
+                System.out.println("Selected: Show all SalesOrders");
+                st.printAllSalesOrders();
+            }
+            else if(command.equals("14"))
+            {
+                System.out.println("Selected:  Show all customers:");
+                st.printAllCustomers();
+            }
+            else {break;}
+        }while(true);
 
     }
 
@@ -132,7 +144,7 @@ public class Main {
         if(Integer.parseInt(itemType) == InventTable.itemTypeValues.BOOK.ordinal())
         {
             System.out.println("Please enter a string in the filling the format:");
-            System.out.println("Enter separated by enter the following Description/Name/Author/Price/OrderQtyValueNumber");
+            System.out.println("Enter separated by enter the following Description/Name/Author/Price/QTY");
             desc = br.readLine();
             name = br.readLine();
             String author = br.readLine();
@@ -146,7 +158,7 @@ public class Main {
         else if(Integer.parseInt(itemType) == InventTable.itemTypeValues.BOARDGAME.ordinal())
         {
             System.out.println("Please enter a string in the filling the format:");
-            System.out.println("Enter separated by enter the following  Description/Name//Price/OrderQtyValueNumber/MinNumberOfPlayer/MaxNumberOfPlayers/QTY");
+            System.out.println("Enter separated by enter the following  Description/Name/Price/MinNumberOfPlayer/MaxNumberOfPlayers/QTY");
             desc = br.readLine();
             name = br.readLine();
             price = br.readLine();

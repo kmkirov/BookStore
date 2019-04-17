@@ -2,7 +2,6 @@ package SQLiteManagement;
 
 import LABELS.SQLStatements;
 import model.Customers;
-import model.InventTable;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class CustomerStogageManager {
 
     public void printAllCustomers() throws SQLException {
         for (Object item: this.getAllCustomers()) {
-            InventTable o = (InventTable) item;
+            Customers o = (Customers) item;
             o.print();
         }
     }

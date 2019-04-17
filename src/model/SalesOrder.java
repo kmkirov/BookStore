@@ -1,13 +1,38 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SalesOrder {
 
 
     public enum SalesOrderTupe {
-        Restocked,
-        Purched,
-        Requested,
-        Completed};
+        Restocked(0),
+        Purched(1),
+        Requested(2),
+        Completed(3);
+
+        private int value;
+        private static Map map = new HashMap<>();
+
+        private SalesOrderTupe(int value) {
+            this.value = value;
+        }
+
+        static {
+            for (SalesOrderTupe pageType : SalesOrderTupe.values()) {
+                map.put(pageType.value, pageType);
+            }
+        }
+
+        public static SalesOrderTupe valueOf(int pageType) {
+            return (SalesOrderTupe) map.get(pageType);
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
 
     private Integer ItemId; // fk
     private Integer SalesId; // pk
@@ -18,7 +43,7 @@ public class SalesOrder {
 
     public void print()
     {
-        System.out.printf("SalesID: %d, ItemId: %d, CustId: %d, SalesType: %d, Qty: %d ",SalesId,ItemId,CustId,SalesType,Qty);
+        System.out.printf("SalesID: %d, ItemId: %d, CustId: %d, SalesType: %s, Qty: %d \n",SalesId,ItemId,CustId,SalesOrderTupe.valueOf(SalesType),Qty);
     }
     public SalesOrder(Integer itemId, Integer salesId, Integer custId, Integer salesType, Integer qty) {
         ItemId = itemId;

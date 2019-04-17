@@ -109,4 +109,14 @@ public class StoreCommands {
         ssm.cleanRequestsAfterRestock(itemId, qty);
     }
 
+    public void printAllSalesOrders() throws SQLException {
+        SalesOrderStorageManager ssm = new SalesOrderStorageManager();
+        ssm.printAllSalesOrders();
+    }
+
+    public void printAllCustomers() throws SQLException {
+        CustomerStogageManager ssm = new CustomerStogageManager();
+        ssm.printAllCustomers();
+    }
+
 }
