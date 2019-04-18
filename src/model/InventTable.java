@@ -2,6 +2,7 @@ package model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class InventTable {
     public enum itemTypeValues {
@@ -141,28 +142,27 @@ public class InventTable {
                 ItemId, itemTypeValues.valueOf(ItemType), Description, Name, Author, QTY, Price, NumOfPlayersMin, NumOfPlayersMax, readyForSale);
     }
 
-    public boolean  itemBookTitleContainsWord(String titlePart) {
-        if(this.Name.contains(titlePart) && this.getItemType() == itemTypeValues.BOOK.ordinal())
-            return true;
-        return false;
+    public boolean itemContainsWord(String smallPart, String source) {
+        return Pattern.compile(Pattern.quote(smallPart), Pattern.CASE_INSENSITIVE).matcher(source).find();
+    }
+
+    public boolean itemBookTitleContainsWord(String titlePart) {
+        Boolean matcherText = this.itemContainsWord(titlePart, this.Name);
+        return matcherText && this.getItemType() == itemTypeValues.BOOK.ordinal();
     }
 
     public boolean  itemBookAuthorContainsWord(String authorName) {
-        if(this.Author.contains(authorName) && this.getItemType() == itemTypeValues.BOOK.ordinal())
-            return true;
-        return false;
+        Boolean matcherText = this.itemContainsWord(authorName, this.Author);
+        return matcherText && this.getItemType() == itemTypeValues.BOOK.ordinal();
     }
 
     public boolean  itemGameNameContainsWord(String gameName) {
-        if(this.Name.contains(gameName) && this.getItemType() == itemTypeValues.BOARDGAME.ordinal())
-            return true;
-        return false;
+        Boolean matcherText = this.itemContainsWord(gameName, this.Name);
+        return matcherText && this.getItemType() == itemTypeValues.BOARDGAME.ordinal();
     }
 
     public boolean  itemGameSuitableForPlayers(Integer gameNOP) {
-        if(this.NumOfPlayersMin<= gameNOP && this.NumOfPlayersMax>= gameNOP && this.getItemType() == itemTypeValues.BOARDGAME.ordinal())
-            return true;
-        return false;
+        return this.NumOfPlayersMin<= gameNOP && this.NumOfPlayersMax>= gameNOP && this.getItemType() == itemTypeValues.BOARDGAME.ordinal();
     }
 
 

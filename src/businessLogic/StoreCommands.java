@@ -15,17 +15,6 @@ public class StoreCommands {
         csm.insertCustomerTable(new Customers(custName, this.nextCustId()));
     }
 
-    public void insertItem()// new items will be created with quantity no restocking needed
-     {}
-    public void restockExistingItem(){}
-    public void requestNotExistingItem(){}
-    public void purchItem(){}
-    public void listCustomerRequest(){}
-    public void deleteCustomerRequest(){}
-    public void purchNotExistingItem()// creates request and purch
-    {}
-
-    public void listCustomers(){}
     // implementation of 1.
     public void listItems() throws SQLException {
         InventoryStorageManager ism = new InventoryStorageManager();
