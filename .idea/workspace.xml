@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="590eb4ff-83ad-4aed-8772-2505d005a308" name="Default Changelist" comment="improve search functionality.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customers.java" afterDir="false" />
-    </list>
+    <list default="true" id="590eb4ff-83ad-4aed-8772-2505d005a308" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +189,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BookStore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BookStore" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -345,12 +352,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555623532144</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="improve search functionality.2">
+      <created>1557239519764</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557239519764</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -428,7 +441,8 @@
     <MESSAGE value="Business Logic Completed." />
     <MESSAGE value="Fix compile time errors." />
     <MESSAGE value="improve search functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="improve search functionality." />
+    <MESSAGE value="improve search functionality.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve search functionality.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
